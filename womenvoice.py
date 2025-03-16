@@ -16,7 +16,7 @@ from plugins import *
 @plugins.register(
     name="WomenVoice",
     desire_priority=10,
-    desc="随机御姐语音插件：发送'随机御姐语音'，机器人将发送随机御姐语音",
+    desc="随机御姐语音插件：发送'撒个娇'，机器人将发送随机御姐语音",
     version="1.0",
     author="AI Assistant",
 )
@@ -123,9 +123,9 @@ class WomenVoice(Plugin):
 
         content = e_context["context"].content.strip()
         
-        # 仅处理"随机御姐语音"关键词
-        if content == "随机御姐语音":
-            logger.info("[WomenVoice] 收到随机御姐语音请求")
+        # 仅处理"撒个娇"关键词
+        if content == "撒个娇":
+            logger.info("[WomenVoice] 收到撒个娇请求")
             
             # 获取随机语音
             voice_path = self.get_random_voice()
@@ -161,7 +161,7 @@ class WomenVoice(Plugin):
         """
         help_text = "🎤 随机御姐语音插件 🎤\n\n"
         help_text += "使用方法：\n"
-        help_text += "- 发送 '随机御姐语音' 获取一条随机御姐语音\n"
+        help_text += "- 发送 '撒个娇' 获取一条随机御姐语音\n"
         return help_text
 
     def cleanup(self):
@@ -178,4 +178,4 @@ class WomenVoice(Plugin):
                         logger.error(f"[WomenVoice] 清理临时文件失败 {file_path}: {e}")
             self.temp_files.clear()
         except Exception as e:
-            logger.error(f"[WomenVoice] 清理任务异常: {e}") 
+            logger.error(f"[WomenVoice] 清理任务异常: {e}")
